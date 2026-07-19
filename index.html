@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salma Aziz — Social Impact Storyteller & Communications Strategist</title>
+<meta name="description" content="Salma Aziz bridges grassroots social development with modern media production. 20+ years driving change from remote communities to national broadcasting platforms.">
+
+<!-- Fonts: Fraunces (editorial display serif) + Inter (body) + Space Mono (utility/labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          canvas: '#FFFFFF',
+          'canvas-soft': '#F9F9FB',
+          obsidian: '#111116',
+          charcoal: '#1C1B22',
+          violet: {
+            DEFAULT: '#7C3AED',
+            deep: '#6D28D9',
+            tint: '#F1EBFE',
+          },
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'ui-serif', 'serif'],
+          sans: ['Inter', 'ui-sans-serif', 'sans-serif'],
+          mono: ['Space Mono', 'ui-monospace', 'monospace'],
+        },
+      },
+    },
+  }
+</script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1);
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  .underline-swipe { position: relative; text-decoration: none; }
+  .underline-swipe::after {
+    content: '';
+    position: absolute; left: 0; bottom: -2px;
+    width: 100%; height: 1px;
+    background: currentColor;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+  }
+  .underline-swipe:hover::after { transform: scaleX(1); }
+
+  .card-lift { transition: transform 0.5s cubic-bezier(.16,1,.3,1), box-shadow 0.5s cubic-bezier(.16,1,.3,1); }
+  .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 60px -20px rgba(17,17,22,0.18); }
+
+  .ruler-seg { transition: flex-grow 0.6s cubic-bezier(.16,1,.3,1), background-color 0.4s ease; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .card-lift, .card-lift:hover { transform: none; }
+  }
+
+  ::selection { background: #7C3AED; color: #fff; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #7C3AED;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+
+<body class="bg-canvas text-obsidian font-sans antialiased">
+
+<!-- ============================= NAVIGATION ============================= -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-canvas/90 backdrop-blur-md border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+    <a href="#top" class="font-serif text-xl tracking-tight text-obsidian">
+      Salma <span class="italic font-light">Aziz</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-10 font-mono text-[11px] tracking-widest uppercase text-obsidian/70">
+      <a href="#work" class="underline-swipe hover:text-violet transition-colors">Work</a>
+      <a href="#evolution" class="underline-swipe hover:text-violet transition-colors">Evolution</a>
+      <a href="#proof" class="underline-swipe hover:text-violet transition-colors">Proof</a>
+      <a href="#contact" class="underline-swipe hover:text-violet transition-colors">Contact</a>
+    </nav>
+
+    <a href="#contact" class="hidden md:inline-flex items-center gap-2 font-mono text-[11px] tracking-widest uppercase border border-obsidian px-5 py-2.5 rounded-full hover:bg-obsidian hover:text-white transition-colors duration-300">
+      Let's Talk
+    </a>
+
+    <!-- Mobile menu button -->
+    <button id="menuBtn" class="md:hidden p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <i data-lucide="menu" class="w-5 h-5"></i>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-canvas">
+    <nav class="flex flex-col px-6 py-6 gap-5 font-mono text-xs tracking-widest uppercase">
+      <a href="#work" class="menu-link">Work</a>
+      <a href="#evolution" class="menu-link">Evolution</a>
+      <a href="#proof" class="menu-link">Proof</a>
+      <a href="#contact" class="menu-link text-violet">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================= HERO SECTION ============================= -->
+<section id="top" class="relative pt-40 pb-24 md:pt-52 md:pb-32 overflow-hidden">
+
+  <!-- subtle structural background marks -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-24 right-[6%] w-px h-40 bg-slate-200 hidden lg:block"></div>
+    <div class="absolute top-24 right-[6%] w-40 h-px bg-slate-200 hidden lg:block"></div>
+    <span class="absolute top-24 right-[6%] translate-x-3 -translate-y-3 font-mono text-[10px] tracking-widest text-obsidian/30 hidden lg:block">EST. 2004</span>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-12 gap-y-10 md:gap-x-6">
+
+    <!-- Eyebrow -->
+    <div class="col-span-12 reveal">
+      <p class="font-mono text-[11px] tracking-[0.25em] uppercase text-violet flex items-center gap-3">
+        <span class="w-8 h-px bg-violet"></span>
+        Social Impact Storyteller — Communications Strategist
+      </p>
+    </div>
+
+    <!-- Headline: asymmetrical, spans 8 of 12 -->
+    <h1 class="col-span-12 lg:col-span-8 font-serif text-[13vw] leading-[0.95] tracking-tight md:text-[5.4rem] lg:text-[5.8rem] reveal">
+      Bridging <span class="italic font-light">grassroots</span><br>
+      development with<br>
+      modern <span class="relative inline-block">
+        media
+        <svg class="absolute left-0 -bottom-2 w-full" height="10" viewBox="0 0 220 10" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M2 7.5C40 2 130 2 218 7.5" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>.
+    </h1>
+
+    <!-- Sub-headline + CTAs: offset right column -->
+    <div class="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col justify-end gap-8 reveal">
+      <p class="text-base md:text-[17px] leading-relaxed text-obsidian/70 border-l border-slate-200 pl-6">
+        Content producer and strategist with 20+ years driving change — from remote communities to national broadcasting platforms.
+      </p>
+
+      <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
+        <a href="#work" class="group inline-flex items-center justify-between gap-4 bg-obsidian text-white px-6 py-4 rounded-full text-sm font-medium hover:bg-violet-deep transition-colors duration-300">
+          View Featured Work
+          <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-45"></i>
+        </a>
+        <a href="#contact" class="group inline-flex items-center justify-between gap-4 border border-obsidian/20 px-6 py-4 rounded-full text-sm font-medium hover:border-violet hover:text-violet transition-colors duration-300">
+          Download CV
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Socials -->
+      <div class="flex items-center gap-5 pt-2">
+        <a href="#" aria-label="LinkedIn" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="linkedin" class="w-[18px] h-[18px]"></i></a>
+        <a href="#" aria-label="YouTube" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="youtube" class="w-[18px] h-[18px]"></i></a>
+        <a href="#" aria-label="Instagram" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="instagram" class="w-[18px] h-[18px]"></i></a>
+        <a href="#" aria-label="Email" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="mail" class="w-[18px] h-[18px]"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FEATURED SHOWCASE ============================= -->
+<section id="work" class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal">
+    <h2 class="font-serif text-4xl md:text-5xl tracking-tight">
+      Featured <span class="italic font-light">Showcase</span>
+    </h2>
+    <p class="font-mono text-[11px] tracking-widest uppercase text-obsidian/50 max-w-xs">
+      Selected work across broadcast, state media, research &amp; child protection
+    </p>
+  </div>
+
+  <div class="grid grid-cols-12 gap-6 md:gap-8">
+
+    <!-- Card 01 — large, spans 7 -->
+    <article class="col-span-12 lg:col-span-7 reveal card-lift">
+      <!-- REPLACE href below with the real YouTube link -->
+      <a href="https://www.youtube.com/watch?v=wOKKbYqS4Ck&pp=0gcJCZkLAYcqIYzv" target="_blank" rel="noopener" class="block group">
+        <div class="relative bg-canvas-soft border border-slate-200 aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
+          <!-- REPLACE src below with images/global-broadcasting.jpg -->
+          <img src="global-broadcasting.jpg" alt="Global Broadcasting — GEO USA TV Sanjha Punjab Show" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-obsidian/0 to-transparent"></div>
+          <i data-lucide="play-circle" class="w-14 h-14 text-white/80 group-hover:text-violet group-hover:scale-110 transition-all duration-300 relative z-10"></i>
+          <span class="absolute top-5 left-5 font-mono text-[10px] tracking-widest uppercase bg-white/80 backdrop-blur px-3 py-1.5 rounded-full border border-slate-200 z-10">Broadcast</span>
+        </div>
+        <div class="flex items-start justify-between mt-5">
+          <div>
+            <h3 class="font-serif text-2xl md:text-[1.7rem] leading-tight">Global Broadcasting</h3>
+            <p class="text-sm text-obsidian/60 mt-1.5 max-w-md">GEO USA TV Sanjha Punjab Show. National-audience storytelling connecting diaspora communities to policy and culture.</p>
+          </div>
+          <span class="shrink-0 mt-1 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-violet group-hover:gap-2.5 transition-all duration-300">
+            View <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Card 02 — small, spans 5 -->
+    <article class="col-span-12 lg:col-span-5 reveal card-lift">
+      <!-- REPLACE href below with the real YouTube link -->
+      <a href="https://www.youtube.com/watch?v=Y2z7e_fms8k&pp=ygUhcmFkaW8gUGFraXN0YW4gcG9kY2FzdCBzYWxtYSBheml6" target="_blank" rel="noopener" class="block group">
+        <div class="relative bg-obsidian aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
+          <!-- REPLACE src below with images/digital-transformation.jpg -->
+          <img src="digital-transformation.jpg" alt="Digital Transformation — Radio Pakistan and PID" class="absolute inset-0 w-full h-full object-cover opacity-90">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-obsidian/10 to-transparent"></div>
+          <i data-lucide="play-circle" class="w-12 h-12 text-white/80 group-hover:text-violet group-hover:scale-110 transition-all duration-300 relative z-10"></i>
+          <span class="absolute top-5 left-5 font-mono text-[10px] tracking-widest uppercase bg-white/10 text-white backdrop-blur px-3 py-1.5 rounded-full border border-white/10 z-10">State Media</span>
+        </div>
+        <div class="flex items-start justify-between mt-5">
+          <div>
+            <h3 class="font-serif text-2xl leading-tight">Digital Transformation</h3>
+            <p class="text-sm text-obsidian/60 mt-1.5">Radio Pakistan &amp; PID modernising state media for a digital-first audience.</p>
+          </div>
+          <span class="shrink-0 mt-1 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-violet group-hover:gap-2.5 transition-all duration-300">
+            View <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Card 03 — small, spans 5 -->
+    <article class="col-span-12 lg:col-span-5 reveal card-lift">
+      <!-- REPLACE href below with the real YouTube link -->
+      <a href="https://www.youtube.com/watch?v=D5533CXcnek" target="_blank" rel="noopener" class="block group">
+        <div class="relative bg-canvas-soft border border-slate-200 aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
+          <!-- REPLACE src below with images/podcast-nic.jpg -->
+          <img src="podcast-nic.jpg" alt="Podcast at National Incubation Center with Startups" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-obsidian/0 to-transparent"></div>
+          <i data-lucide="play-circle" class="w-12 h-12 text-white/80 group-hover:text-violet group-hover:scale-110 transition-all duration-300 relative z-10"></i>
+          <span class="absolute top-5 left-5 font-mono text-[10px] tracking-widest uppercase bg-white/80 backdrop-blur px-3 py-1.5 rounded-full border border-slate-200 z-10">Podcast</span>
+        </div>
+        <div class="flex items-start justify-between mt-5">
+          <div>
+            <h3 class="font-serif text-2xl leading-tight">Podcast at National Incubation Center With Startups</h3>
+            <p class="text-sm text-obsidian/60 mt-1.5">Conversations with founders unpacking the startup journey for a national audience.</p>
+          </div>
+          <span class="shrink-0 mt-1 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-violet group-hover:gap-2.5 transition-all duration-300">
+            View <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Card 04 — large, spans 7 -->
+    <article class="col-span-12 lg:col-span-7 reveal card-lift">
+      <!-- REPLACE href below with the real YouTube link -->
+      <a href="https://www.youtube.com/watch?v=CaoXLhZ4x3s" target="_blank" rel="noopener" class="block group">
+        <div class="relative bg-obsidian aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
+          <!-- REPLACE src below with images/crisis-response.jpg -->
+          <img src="crisis-response.jpg" alt="Crisis Response and Child Protection — Terre des Hommes" class="absolute inset-0 w-full h-full object-cover opacity-90">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-obsidian/10 to-transparent"></div>
+          <i data-lucide="play-circle" class="w-14 h-14 text-white/80 group-hover:text-violet group-hover:scale-110 transition-all duration-300 relative z-10"></i>
+          <span class="absolute top-5 left-5 font-mono text-[10px] tracking-widest uppercase bg-white/10 text-white backdrop-blur px-3 py-1.5 rounded-full border border-white/10 z-10">Crisis Response</span>
+        </div>
+        <div class="flex items-start justify-between mt-5">
+          <div>
+            <h3 class="font-serif text-2xl md:text-[1.7rem] leading-tight">Crisis Response &amp; Child Protection</h3>
+            <p class="text-sm text-obsidian/60 mt-1.5 max-w-md">Terre des Hommes rapid communications support for frontline protection programming.</p>
+          </div>
+          <span class="shrink-0 mt-1 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-violet group-hover:gap-2.5 transition-all duration-300">
+            View <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </a>
+    </article>
+
+    <!-- Card 03 — small, spans 5 -->
+    <article class="col-span-12 lg:col-span-5 reveal card-lift">
+      <!-- REPLACE href below with the real YouTube link -->
+      <a href="https://www.youtube.com/watch?v=xE79ieFWm_I&pp=ygUhcmFkaW8gUGFraXN0YW4gcG9kY2FzdCBzYWxtYSBheml6" target="_blank" rel="noopener" class="block group">
+        <div class="relative bg-canvas-soft border border-slate-200 aspect-video rounded-2xl flex items-center justify-center overflow-hidden">
+          <!-- REPLACE src below with images/podcast-nic.jpg -->
+          <img src="miss-maliha.jpg" alt="Podcast at National Incubation Center with Startups" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-obsidian/0 to-transparent"></div>
+          <i data-lucide="play-circle" class="w-12 h-12 text-white/80 group-hover:text-violet group-hover:scale-110 transition-all duration-300 relative z-10"></i>
+          <span class="absolute top-5 left-5 font-mono text-[10px] tracking-widest uppercase bg-white/80 backdrop-blur px-3 py-1.5 rounded-full border border-slate-200 z-10">Podcast</span>
+        </div>
+        <div class="flex items-start justify-between mt-5">
+          <div>
+            <h3 class="font-serif text-2xl leading-tight">Podcast at Radio Pakistan</h3>
+            <p class="text-sm text-obsidian/60 mt-1.5">Workplace Harrasment Act 2010</p>
+          </div>
+          <span class="shrink-0 mt-1 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-violet group-hover:gap-2.5 transition-all duration-300">
+            View <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================= THE EVOLUTION (Proportional Timeline) ============================= -->
+<section id="evolution" class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32 border-t border-slate-200">
+
+  <div class="mb-16 reveal">
+    <h2 class="font-serif text-4xl md:text-5xl tracking-tight">
+      The <span class="italic font-light">Evolution</span>
+    </h2>
+    <p class="font-mono text-[11px] tracking-widest uppercase text-obsidian/50 mt-4">
+      Three eras — width mapped to years active
+    </p>
+  </div>
+
+  <!-- Proportional ruler: segment width = duration of era -->
+  <div class="reveal">
+    <div class="flex w-full h-3 md:h-4 rounded-full overflow-hidden border border-slate-200">
+      <div class="ruler-seg bg-canvas-soft" style="flex-grow: 4;" title="The Foundation Era — 4 years"></div>
+      <div class="ruler-seg bg-obsidian" style="flex-grow: 9;" title="The Consulting Era — 9 years"></div>
+      <div class="ruler-seg bg-violet" style="flex-grow: 7;" title="The Media Era — ongoing"></div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mt-12">
+
+    <div class="reveal">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-3 h-3 rounded-full bg-canvas-soft border border-slate-300"></span>
+        <span class="font-mono text-[11px] tracking-widest uppercase text-obsidian/50">2004 — 2008</span>
+      </div>
+      <h3 class="font-serif text-2xl mb-2">The Foundation Era</h3>
+      <p class="text-sm text-obsidian/65 leading-relaxed">
+        Grassroots beginnings — building trust and craft directly within remote and underserved communities.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-3 h-3 rounded-full bg-obsidian"></span>
+        <span class="font-mono text-[11px] tracking-widest uppercase text-obsidian/50">2009 — 2018</span>
+      </div>
+      <h3 class="font-serif text-2xl mb-2">The Consulting Era</h3>
+      <p class="text-sm text-obsidian/65 leading-relaxed">
+        Strategic advisory across three tiers of government — translating field insight into institutional frameworks.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-3 h-3 rounded-full bg-violet"></span>
+        <span class="font-mono text-[11px] tracking-widest uppercase text-obsidian/50">2019 — Present</span>
+      </div>
+      <h3 class="font-serif text-2xl mb-2">The Media Era</h3>
+      <p class="text-sm text-obsidian/65 leading-relaxed">
+        National broadcast and digital production — scaling grassroots stories to mainstream platforms.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================= METADATA RIBBON (Proof in Numbers) ============================= -->
+<section id="proof" class="bg-obsidian text-white">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6">
+
+      <div class="reveal">
+        <p class="font-serif text-5xl md:text-6xl text-violet tracking-tight">20<span class="text-3xl md:text-4xl align-top">+</span></p>
+        <p class="font-mono text-[10px] md:text-[11px] tracking-widest uppercase text-white/50 mt-3">Years Active</p>
+      </div>
+
+      <div class="reveal">
+        <p class="font-serif text-5xl md:text-6xl text-violet tracking-tight">3</p>
+        <p class="font-mono text-[10px] md:text-[11px] tracking-widest uppercase text-white/50 mt-3">Tiers of Government Managed</p>
+      </div>
+
+      <div class="reveal">
+        <p class="font-serif text-5xl md:text-6xl text-violet tracking-tight">50<span class="text-3xl md:text-4xl align-top">+</span></p>
+        <p class="font-mono text-[10px] md:text-[11px] tracking-widest uppercase text-white/50 mt-3">High-Profile Interviews</p>
+      </div>
+
+      <div class="reveal">
+        <p class="font-serif text-5xl md:text-6xl text-violet tracking-tight">2</p>
+        <p class="font-mono text-[10px] md:text-[11px] tracking-widest uppercase text-white/50 mt-3">Core Master / Cert Frameworks</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER / CALL TO ACTION ============================= -->
+<footer id="contact" class="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+
+  <div class="reveal">
+    <p class="font-mono text-[11px] tracking-widest uppercase text-violet mb-6">Get In Touch</p>
+    <h2 class="font-serif text-[10vw] md:text-6xl lg:text-7xl leading-[0.98] tracking-tight max-w-4xl">
+      Let's amplify your organization's <span class="italic font-light">impact.</span>
+    </h2>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mt-16 reveal">
+
+    <div class="flex flex-col gap-4">
+      <a href="mailto:hello@salmaaziz.com" class="group inline-flex items-center gap-3 text-lg md:text-xl border-b border-transparent hover:border-obsidian transition-colors duration-300 w-fit">
+        <i data-lucide="mail" class="w-5 h-5 text-violet"></i>
+        hello@salmaaziz.com
+      </a>
+      <a href="#" class="group inline-flex items-center gap-3 text-lg md:text-xl border-b border-transparent hover:border-obsidian transition-colors duration-300 w-fit">
+        <i data-lucide="linkedin" class="w-5 h-5 text-violet"></i>
+        linkedin.com/in/salmaaziz
+      </a>
+    </div>
+
+    <a href="#" class="group inline-flex items-center justify-between gap-6 bg-obsidian text-white px-7 py-5 rounded-full text-sm font-medium hover:bg-violet-deep transition-colors duration-300 w-fit">
+      Download Full CV (PDF)
+      <i data-lucide="download" class="w-4 h-4"></i>
+    </a>
+  </div>
+
+  <div class="flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-6 mt-24 pt-8 border-t border-slate-200">
+    <p class="font-mono text-[11px] tracking-widest uppercase text-obsidian/40">
+      © 2026 Salma Aziz. All rights reserved.
+    </p>
+    <div class="flex items-center gap-5">
+      <a href="#" aria-label="LinkedIn" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="linkedin" class="w-[18px] h-[18px]"></i></a>
+      <a href="#" aria-label="YouTube" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="youtube" class="w-[18px] h-[18px]"></i></a>
+      <a href="#" aria-label="Instagram" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="instagram" class="w-[18px] h-[18px]"></i></a>
+      <a href="#" aria-label="Twitter / X" class="text-obsidian/50 hover:text-violet transition-colors"><i data-lucide="twitter" class="w-[18px] h-[18px]"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= SCRIPTS ============================= -->
+<script>
+  lucide.createIcons();
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    menuBtn.innerHTML = isOpen ? '<i data-lucide="menu" class="w-5 h-5"></i>' : '<i data-lucide="x" class="w-5 h-5"></i>';
+    lucide.createIcons();
+  });
+  document.querySelectorAll('.menu-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5"></i>';
+      lucide.createIcons();
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
